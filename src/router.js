@@ -91,10 +91,11 @@
 // })
 
 //***************************
-
+import app from 'ampersand-app'
 import Router from 'ampersand-router'
 import React from 'react'
 import qs from 'qs'
+import xhr from 'xhr'
 import PublicPage from './pages/public1.js'
 import ReposPage from './pages/repos1.js'
 import Layout from './layout1.js'
@@ -115,6 +116,7 @@ export default Router.extend({
     '': 'public',
     'repos':'repos',
     'login': 'login',
+    'logout': 'logout',
     'auth/callback?:query': 'authCallback'
   },
 
@@ -137,5 +139,19 @@ export default Router.extend({
   authCallback (query) {
     query = qs.parse(query)
     console.log(query)
+
+    xhr({
+      url: 'http://labelr-dev.herokuapp.com/authenticate/' + query.code,
+      json: true
+    }, (err, req, body) => {
+      console.log(body)
+      app.me.token = body.token
+      this.redirectTo('/repos')
+    })
+  },
+
+  logout () {
+    window.localStorage.clear()
+    window.location = '/'
   }
 })
