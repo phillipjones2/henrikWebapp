@@ -31,12 +31,3 @@ export default Model.extend(githubMixin, {
     this.labels.fetch()
   }
 })
-
-
-
-
-
-
-
-
-

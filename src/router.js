@@ -3,10 +3,10 @@ import Router from 'ampersand-router'
 import React from 'react'
 import qs from 'qs'
 import xhr from 'xhr'
-import PublicPage from './pages/public1.js'
-import ReposPage from './pages/repos1.js'
-import RepoDetail from './pages/repo-detail1.js'
-import Layout from './layout1.js'
+import PublicPage from './pages/public1'
+import ReposPage from './pages/repos1'
+import RepoDetail from './pages/repo-detail1'
+import Layout from './layout1'
 
 export default Router.extend({
   renderPage (page, opts = {layout: true}) {
@@ -39,7 +39,7 @@ export default Router.extend({
 
   repoDetail (owner, name) {
     const model = app.me.repos.getByFullName(owner + '/' + name)
-    this.renderPage(<RepoDetail repo={model} />)
+    this.renderPage(<RepoDetail repo={model} labels={model.labels} />)
   },
 
   login () {

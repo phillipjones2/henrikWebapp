@@ -4,9 +4,9 @@ import RepoCollection from './repo-collection1'
 
 export default Model.extend(githubMixin, {
   url: 'https://api.github.com/user',
+
   initialize () {
     this.token = window.localStorage.token
-
     this.on('change:token', this.onTokenChange)
   },
 
@@ -35,5 +35,4 @@ export default Model.extend(githubMixin, {
       this.repos.fetch()
     }
   }
-
 })
