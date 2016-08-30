@@ -1,5 +1,4 @@
 import React from 'react'
-import app from 'ampersand-app'
 import ampersandMixin from 'ampersand-react-mixin'
 import NavHelper from './components/nav-helper'
 
@@ -11,7 +10,7 @@ export default React.createClass({
 
   render () {
     const { me } = this.props
-    
+
     return (
       <NavHelper>
         <nav className='top-nav top-nav-light cf' role='navigation'>

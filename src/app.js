@@ -19,6 +19,7 @@
 
 import Router from './router'
 import styles from './styles/main1.styl'
+import icons from 'octicons/octicons/octicons.css'
 import app from 'ampersand-app'
 import Me from './models/me1'
 
