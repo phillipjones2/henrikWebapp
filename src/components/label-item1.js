@@ -4,11 +4,13 @@ import ampersandMixin from 'ampersand-react-mixin'
 export default React.createClass({
   mixins: [ampersandMixin],
 
-  onEditClick () {
+  onEditClick (e) {
+    e.preventDefault()
     this.props.label.editing = true
   },
 
-  onCancelClick () {
+  onCancelClick (e) {
+    e.preventDefault()
     this.props.label.editing = false
 
   },
@@ -21,7 +23,7 @@ export default React.createClass({
     if (label.editing) {
       content = (
         <form className='label'>
-          <span className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
+          <span className='label-color avatar avatar-small avatar-rounded' style={{backgroundColor:cssColor}}>&nbsp;</span>
           <input name='name'/>
           <input name='color'/>
           <button type='submit' className='button button-small'>Save</button>
